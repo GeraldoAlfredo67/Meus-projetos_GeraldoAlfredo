@@ -3,91 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educação - Site Completo</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Site Educacional</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        nav { background-color: #4CAF50; padding: 10px; }
+        nav a { color: white; padding: 14px 20px; text-decoration: none; }
+        .content { display: none; }
+        .active { display: block; }
+    </style>
 </head>
 <body>
-    <!-- Vertical Menu -->
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Término 1</a></li>
-            <li><a href="#">Término 2</a></li>
-            <li><a href="#">Término 3</a></li>
-        </ul>
-    </nav>
 
-    <!-- Horizontal Menu -->
-    <header>
-        <h1>Bem-vindo ao nosso site educacional!</h1>
-        <ul>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Contato</a></li>
-        </ul>
-    </header>
+<nav>
+    <a href="#" onclick="showTrimester('trimester1')">Trimestre 1</a>
+    <a href="#" onclick="showTrimester('trimester2')">Trimestre 2</a>
+    <a href="#" onclick="showTrimester('trimester3')">Trimestre 3</a>
+</nav>
 
-    <!-- Termo 1 - Conteúdo HTML -->
-    <section id="termo1">
-        <h2>Término 1</h2>
-        <p>Conteúdo introdutório sobre HTML.</p>
-        <img src="exemplo.jpg" alt="Exemplo de Imagem">
-        <video controls>
-            <source src="video.mp4" type="video/mp4">
-            Seu navegador não suporta o vídeo.
-        </video>
-        <audio controls>
-            <source src="audio.mp3" type="audio/mpeg">
-            Seu navegador não suporta o áudio.
-        </audio>
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Idade</th>
-            </tr>
-            <tr>
-                <td>Geraldo</td>
-                <td>22</td>
-            </tr>
-        </table>
-    </section>
+<div id="trimester1" class="content active">
+    <h2>Trimestre 1</h2>
+    <table>
+        <tr>
+            <th>Assunto</th>
+            <th>Ações</th>
+        </tr>
+        <tr>
+            <td>Matemática</td>
+            <td><audio controls src="audio/matematica.mp3"></audio></td>
+        </tr>
+        <tr>
+            <td>Ciências</td>
+            <td><audio controls src="audio/ciencias.mp3"></audio></td>
+        </tr>
+    </table>
+    <img src="images/trimester1.jpg" alt="Trimester 1 Image">
+</div>
 
-    <!-- Termo 2 - Conteúdo CSS -->
-    <section id="termo2">
-        <h2>Término 2</h2>
-        <p>Conteúdo introdutório sobre CSS.</p>
-    </section>
-
-    <!-- Termo 3 - Resumo -->
-    <section id="termo3">
-        <h2>Término 3 - Resumo</h2>
-        <p>Resumo dos conteúdos abordados nos três trimestres.</p>
-    </section>
-
-    <!-- Formulário com dados do usuário -->
+<div id="trimester2" class="content">
+    <h2>Trimestre 2</h2>
     <form>
-        <h3>Dados Pessoais</h3>
-        <label for="name">Nome:</label>
-        <input type="text" id="name" value="Geraldo General Alfredo" disabled><br>
-        <label for="filiation">Filiacão:</label>
-        <input type="text" id="filiation" value="Jesus Domingos Alfredo e Júlia Nana Maria General" disabled><br>
-        <label for="bi">Número do BI:</label>
-        <input type="text" id="bi" value="020491616LA055" disabled><br>
-        <label for="birthplace">Local de Nascimento:</label>
-        <input type="text" id="birthplace" value="Golf, Luanda" disabled><br>
-        <label for="birthdate">Data de Nascimento:</label>
-        <input type="text" id="birthdate" value="26/03/2004" disabled><br>
-        <label for="gender">Gênero:</label>
-        <input type="text" id="gender" value="Masculino" disabled><br>
-        <label for="height">Altura:</label>
-        <input type="text" id="height" value="1.81m" disabled><br>
-        <label for="marital-status">Estado Civil:</label>
-        <input type="text" id="marital-status" value="Solteiro" disabled><br>
-        <label for="issued">Emitido:</label>
-        <input type="text" id="issued" value="07/01/2026" disabled><br>
-        <label for="valid-until">Válido Até:</label>
-        <input type="text" id="valid-until" value="06/01/2036" disabled><br>
+        <label for="feedback">Deixe seu feedback:</label><br>
+        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Enviar">
     </form>
+    <img src="images/trimester2.jpg" alt="Trimester 2 Image">
+</div>
 
-    <script src="script.js"></script>
+<div id="trimester3" class="content">
+    <h2>Trimestre 3</h2>
+    <video width="320" height="240" controls>
+        <source src="video/trimester3.mp4" type="video/mp4">
+        Seu navegador não suporta o vídeo.
+    </video>
+</div>
+
+<script>
+    function showTrimester(trimester) {
+        const contents = document.querySelectorAll('.content');
+        contents.forEach(content => {
+            content.classList.remove('active');
+        });
+        document.getElementById(trimester).classList.add('active');
+    }
+</script>
+
 </body>
 </html>
